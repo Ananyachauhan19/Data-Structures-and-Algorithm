@@ -1,6 +1,6 @@
 // Brute - sort 
 // Better - iterate over array and sount for each 0 , 1, 2 and then again run a loop and manual overwrite for 0 then 1 then 2
-// Optimal - low, mid, high
+// Optimal - low, mid, high (Dutch Flag Algorithm)
 
 #include<iostream>
 using namespace std;
