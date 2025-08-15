@@ -4,38 +4,60 @@
 using namespace std;
 
 vector<int> find(int *arr1, int *arr2, int n, int m, vector<int> &res){
-    
+
     int i=0, j=0;
-    
-    while(i<n && j<m){
-        if(arr1[i] <= arr2[j]){
-            if(res.size() == 0 || res.back() != arr1[i]){
-                res.push_back(arr1[i]);
-            }
+
+    if (res.empty()) {
+        if (arr1[i] <= arr2[j]) {
+            res.push_back(arr1[i]);
             i++;
-        }
-        else{
-            if(res.size() == 0 || res.back() != arr2[j]){
-                res.push_back(arr2[j]);
-            }
+        } else {
+            res.push_back(arr2[j]);
             j++;
         }
     }
 
-    while(i < n){
-        if(res.size() == 0 || res.back() != arr1[i]){
+    while(i < n && j < m){
+        if(arr1[i] <= arr2[j]){
+            if(res.back() != arr1[i]){
                 res.push_back(arr1[i]);
+                i++;
+            }
+            else{
+                i++;
+            }
         }
-        i++;
-    }
-
-    while(j < m){
-        if(res.size() == 0 || res.back() != arr2[j]){
+        else{
+            if(res.back() != arr2[j]){
                 res.push_back(arr2[j]);
+                j++;
+            }
+            else{
+                j++;
+            }
         }
-        j++;
     }
 
+    while(i<n){
+        if(res.back()!=arr1[i]){
+            res.push_back(arr1[i]);
+            i++;
+        }
+        else{
+            i++;
+        }
+    }
+
+    while(j<m){
+        if(res.back()!=arr2[j]){
+            res.push_back(arr2[j]);
+            j++;
+        }
+        else{
+            j++;
+        }
+    }
+    
     return res;
 }
 

@@ -2,11 +2,11 @@
 using namespace std;
 
 int find(int *arr, int n){
-    int largest=0, count = 0;
-    for(int i=1; i<=n; i++){
-        if(arr[i]==1){
+    int largest = 0, count = 0;
+    for(int i=0; i<n; i++){
+        if(arr[i] == 1){
             count++;
-            
+            largest = max(largest, count);
         }
         else{
             count = 0;
